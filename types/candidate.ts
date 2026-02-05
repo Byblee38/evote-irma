@@ -5,6 +5,7 @@ export interface Candidate {
   vision: string
   mission: string
   order_number: number
+  class: string
   created_at: string
   updated_at: string
 }

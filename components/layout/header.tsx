@@ -13,12 +13,6 @@ export function Header() {
           
           <nav className="flex gap-6 text-sm">
             <Link 
-              href="/candidates"
-              className="hover:text-foreground/80 transition-colors"
-            >
-              Kandidat
-            </Link>
-            <Link 
               href="/vote"
               className="hover:text-foreground/80 transition-colors"
             >
@@ -26,7 +20,7 @@ export function Header() {
             </Link>
             <Link 
               href="/results"
-              className="hover:text-foreground/80 transition-colors"
+              className="hover:text-foreground/80 transition-colors font-bold"
             >
               Hasil
             </Link>

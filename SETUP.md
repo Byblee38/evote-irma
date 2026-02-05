@@ -28,6 +28,7 @@ CREATE TABLE candidates (
     vision TEXT NOT NULL,
     mission TEXT NOT NULL,
     order_number INTEGER NOT NULL UNIQUE,
+    class TEXT NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
 );
@@ -140,16 +141,16 @@ ALTER PUBLICATION supabase_realtime ADD TABLE votes;
 
 \`\`\`sql
 -- Kandidat
-INSERT INTO candidates (name, photo_url, vision, mission, order_number) VALUES
+INSERT INTO candidates (name, photo_url, vision, mission, order_number, class) VALUES
 ('Kandidat 1: John Doe & Jane Smith', '/candidates/1.jpg', 
  'Menciptakan lingkungan sekolah yang inklusif dan inovatif', 
- E'1. Meningkatkan fasilitas ekstrakurikuler\\n2. Program mentoring\\n3. Transparansi dana OSIS', 1),
+ E'1. Meningkatkan fasilitas ekstrakurikuler\\n2. Program mentoring\\n3. Transparansi dana OSIS', 1, 'XII IPA 1'),
 ('Kandidat 2: Alice Wong & Bob Chen', '/candidates/2.jpg',
  'Membangun OSIS yang terbuka dan responsif', 
- E'1. Digitalisasi layanan OSIS\\n2. Program peduli lingkungan\\n3. Kegiatan sosial rutin', 2),
+ E'1. Digitalisasi layanan OSIS\\n2. Program peduli lingkungan\\n3. Kegiatan sosial rutin', 2, 'XII IPS 2'),
 ('Kandidat 3: David Lee & Emily Park', '/candidates/3.jpg',
  'OSIS yang aktif, kreatif, dan berprestasi', 
- E'1. Event bulanan melibatkan semua siswa\\n2. Kompetisi antar kelas\\n3. Kerjasama dengan alumni', 3);
+ E'1. Event bulanan melibatkan semua siswa\\n2. Kompetisi antar kelas\\n3. Kerjasama dengan alumni', 3, 'XII IPA 2');
 
 -- Tokens (100 tokens)
 INSERT INTO tokens (token_code, description)

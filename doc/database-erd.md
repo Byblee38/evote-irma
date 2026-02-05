@@ -273,12 +273,17 @@ INSERT INTO candidates (name, photo_url, vision, mission, order_number) VALUES
 ### Sample Tokens
 
 ```sql
--- Generate 100 tokens untuk voting
+-- Generate 100 tokens untuk voting dengan angka random
 INSERT INTO tokens (token_code, description)
+WITH random_nums AS (
+    SELECT DISTINCT (random() * 999999)::int as num
+    FROM generate_series(1, 150)  -- oversample untuk menghindari duplikasi
+    LIMIT 100
+)
 SELECT 
-    'VOTE-' || TO_CHAR(CURRENT_DATE, 'YYYY') || '-' || LPAD(generate_series::TEXT, 6, '0'),
+    'VOTE-' || TO_CHAR(CURRENT_DATE, 'YYYY') || '-' || LPAD(num::text, 6, '0'),
     'Token untuk pemilihan ' || TO_CHAR(CURRENT_DATE, 'YYYY')
-FROM generate_series(1, 100);
+FROM random_nums;
 ```
 
 ---
