@@ -75,7 +75,7 @@ export function VoteStats({ results }: VoteStatsProps) {
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <Badge className="text-xs border-gray-300 bg-gray-50">
+                    <Badge className="text-xs">
                       #{result.order_number}
                     </Badge>
                     <h3 className="font-bold text-lg truncate">{result.name}</h3>
