@@ -1,3 +1,5 @@
+'use client'
+
 import { CandidateCard } from './candidate-card'
 import type { Candidate } from '@/types/candidate'
 
