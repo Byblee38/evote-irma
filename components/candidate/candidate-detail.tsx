@@ -12,7 +12,7 @@ export function CandidateDetail({ candidate }: CandidateDetailProps) {
     <div className="space-y-6">
       <div className="flex items-center gap-4">
         <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-          Kandidat #{candidate.order_number}
+          #{candidate.order_number}
         </Badge>
         <div>
           <h2 className="text-2xl font-bold">{candidate.name}</h2>

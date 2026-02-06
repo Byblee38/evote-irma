@@ -43,7 +43,7 @@ export function CandidateList({
 
       {showDialog && (
         <Dialog open={!!selectedCandidate} onOpenChange={() => setSelectedCandidate(null)}>
-          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-2xl max-h-[90vh] sm:max-h-[85vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Detail Kandidat</DialogTitle>
             </DialogHeader>
