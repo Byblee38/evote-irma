@@ -82,7 +82,14 @@ export function CandidateCard({
           </div>
           <div>
             <h4 className="font-semibold text-sm text-purple-600 mb-1">Misi</h4>
-            <p className="text-xs text-gray-600 line-clamp-3">{candidate.mission}</p>
+            <ul className="text-xs text-gray-600 space-y-1">
+              {candidate.mission.slice(0, 3).map((point, index) => (
+                <li key={index} className="line-clamp-1">• {point}</li>
+              ))}
+              {candidate.mission.length > 3 && (
+                <li className="text-xs text-gray-500">+{candidate.mission.length - 3} lainnya</li>
+              )}
+            </ul>
           </div>
         </div>
       </CardContent>

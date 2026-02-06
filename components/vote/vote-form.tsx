@@ -50,6 +50,7 @@ export function VoteForm({ candidates, onSuccess }: VoteFormProps) {
           candidates={candidates}
           onSelectCandidate={setSelectedCandidate}
           selectedCandidateId={selectedCandidate?.id}
+          showDialog={false}
         />
 
         {selectedCandidate && (

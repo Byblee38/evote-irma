@@ -3,7 +3,7 @@ export interface Candidate {
   name: string
   photo_url: string | null
   vision: string
-  mission: string
+  mission: string[]
   order_number: number
   class: string
   created_at: string

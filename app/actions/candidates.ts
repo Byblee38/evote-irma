@@ -3,6 +3,20 @@
 import { createClient } from '@/lib/supabase/server'
 import type { Candidate, VoteResult } from '@/types/candidate'
 
+function parseMission(mission: string | string[]): string[] {
+  if (typeof mission === 'string') {
+    return mission
+      .split('\n')
+      .map(line => line.trim())
+      .filter(line => line.length > 0)
+      .map(line => line.replace(/^\d+\.\s*/, '')) // Remove numbered prefix like "1. "
+  } else if (Array.isArray(mission)) {
+    return mission
+  } else {
+    return []
+  }
+}
+
 export async function getCandidates(): Promise<Candidate[]> {
   const supabase = await createClient()
   
@@ -16,7 +30,10 @@ export async function getCandidates(): Promise<Candidate[]> {
     return []
   }
   
-  return data || []
+  return (data || []).map(candidate => ({
+    ...candidate,
+    mission: parseMission(candidate.mission)
+  }))
 }
 
 export async function getCandidateById(
@@ -35,7 +52,10 @@ export async function getCandidateById(
     return null
   }
   
-  return data
+  return {
+    ...data,
+    mission: parseMission(data.mission)
+  }
 }
 
 export async function getVoteResults(): Promise<VoteResult[]> {
